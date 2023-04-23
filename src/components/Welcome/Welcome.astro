@@ -1,0 +1,64 @@
+---
+import mochiBg from '../../../public/assets/images/mochis-bg.jpg';
+import downIcon from '../../../public/assets/icons/down.svg';
+---
+
+<section class='welcome'>
+  <picture>
+    <img src={mochiBg} alt='mochis background' class='welcome__img' />
+  </picture>
+  <h1 class='welcome__title'>Mochis</h1>
+  <p class='welcome__info'>
+    Has buscado un postre innovador y diferente, con un sabor único a natural que no contenga
+    azúcares añadidas y te brinde vitaminas? Te traemos Mochis hechos a mano con ingredientes
+    frescos y de alta calidad.
+  </p>
+  <span class='welcome__down'>
+    <a href='#'>
+      <picture>
+        <img src={downIcon} alt='down icon' class='welcome__icon' />
+      </picture>
+    </a>
+  </span>
+</section>
+
+<style>
+  .welcome {
+    position: relative;
+    color: var(--primary-text);
+  }
+
+  .welcome__img {
+    width: 100%;
+    object-fit: cover;
+    height: calc(100vh - 20px);
+    filter: brightness(50%);
+  }
+
+  .welcome__title,
+  .welcome__info,
+  .welcome__down {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .welcome__title {
+    top: 8rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-size: 3.5rem;
+  }
+
+  .welcome__info {
+    top: 15rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  .welcome__down {
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+</style>
