@@ -48,9 +48,9 @@ function ProductsCarousel() {
           },
         }}
       >
-        {productList.map((item) => {
+        {productList.map((item, i) => {
           return (
-            <SwiperSlide className='slide'>
+            <SwiperSlide className='slide' key={i}>
               <ProductItem product={item} />
             </SwiperSlide>
           );
