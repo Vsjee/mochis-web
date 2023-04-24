@@ -1,12 +1,10 @@
 ---
-import mochiBg from '../../../public/assets/images/mochis-bg.jpg';
 import downIcon from '../../../public/assets/icons/down.svg';
+import mochiImg from '../../../public/assets/images/mochi-img.png';
+import mochisImg from '../../../public/assets/images/mochis-img.png';
 ---
 
 <section class='welcome'>
-  <picture>
-    <img src={mochiBg} alt='mochis background' class='welcome__img' />
-  </picture>
   <h1 class='welcome__title'>Mochis</h1>
   <p class='welcome__info'>
     Has buscado un postre innovador y diferente, con un sabor único a natural que no contenga
@@ -20,45 +18,158 @@ import downIcon from '../../../public/assets/icons/down.svg';
       </picture>
     </a>
   </span>
+
+  <picture>
+    <img src={mochiImg} alt='ice cream mochi' class='mochiImg' />
+  </picture>
+
+  <picture>
+    <img src={mochisImg} alt='ice cream mochis' class='mochisImg' />
+  </picture>
 </section>
 
 <style>
+  @keyframes floating {
+    0% {
+      transform: translate(0, 0px);
+    }
+    50% {
+      transform: translate(0, 15px);
+    }
+    100% {
+      transform: translate(0, -0px);
+    }
+  }
+
   .welcome {
     position: relative;
     color: var(--primary-text);
+
+    background: linear-gradient(rgb(21, 1, 32), rgba(0, 0, 0, 0.68)),
+      url('../../../public/assets/images/mochis-bg.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    height: calc(100vh + 20px);
+    width: 100%;
   }
 
-  .welcome__img {
-    width: 100%;
-    object-fit: cover;
-    height: calc(100vh - 20px);
-    filter: brightness(50%);
+  .welcome__title,
+  .welcome__info,
+  .welcome__down,
+  .mochiImg,
+  .mochisImg {
+    position: absolute;
+    transition: all 0.6s ease-in-out;
   }
 
   .welcome__title,
   .welcome__info,
   .welcome__down {
-    position: absolute;
-    top: 0;
-    left: 0;
+    z-index: 1;
   }
 
   .welcome__title {
-    top: 8rem;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, 0);
     font-size: 3.5rem;
   }
 
   .welcome__info {
-    top: 15rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-size: 1.3rem;
+  }
+
+  .welcome__down {
+    top: 88%;
     left: 50%;
     transform: translate(-50%, 0);
   }
 
-  .welcome__down {
-    top: 90%;
-    left: 50%;
-    transform: translate(-50%, 0);
+  .welcome__down:hover {
+    filter: var(--invert-grey);
+  }
+
+  /* mochis images*/
+  .mochiImg,
+  .mochisImg {
+    width: 400px;
+    z-index: 0;
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
+
+  .mochiImg {
+    top: 15%;
+    left: 0;
+  }
+
+  .mochisImg {
+    top: 60%;
+    right: 2%;
+  }
+
+  /* down icon */
+  .welcome__icon {
+    filter: var(--invert-white);
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
+
+  /* media queries */
+  @media screen and (max-width: 910px) {
+    .mochiImg,
+    .mochisImg {
+      width: 300px;
+    }
+
+    .mochisImg {
+      top: 66%;
+    }
+  }
+
+  @media screen and (max-width: 726px) {
+    .mochiImg,
+    .mochisImg {
+      width: 200px;
+    }
+
+    .mochisImg {
+      top: 70%;
+    }
+
+    .welcome__title {
+      top: 20%;
+    }
+
+    .welcome__info {
+      top: 40%;
+      width: 60%;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .mochiImg,
+    .mochisImg {
+      width: 125px;
+      top: 76%;
+
+      animation-name: none;
+    }
+
+    .welcome__title {
+      top: 10%;
+    }
+
+    .welcome__info {
+      top: 30%;
+      width: 70%;
+    }
   }
 </style>
