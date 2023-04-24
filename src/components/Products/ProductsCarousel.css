@@ -1,0 +1,10 @@
+.carousel {
+  margin: 6rem 5%;
+  z-index: 0;
+}
+
+.carousel__title {
+  text-align: center;
+  margin: 6rem 0;
+  font-size: 2rem;
+}
