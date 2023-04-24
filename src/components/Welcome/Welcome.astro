@@ -45,12 +45,14 @@ import mochisImg from '../../../public/assets/images/mochis-img.png';
     position: relative;
     color: var(--primary-text);
 
-    background: linear-gradient(rgb(21, 1, 32), rgba(0, 0, 0, 0.68)),
+    background: linear-gradient(rgb(190, 187, 187), rgba(0, 0, 0, 0.68)),
       url('../../../public/assets/images/mochis-bg.jpg');
     background-attachment: fixed;
     background-size: cover;
     height: calc(100vh + 20px);
     width: 100%;
+
+    z-index: 0;
   }
 
   .welcome__title,
@@ -89,7 +91,7 @@ import mochisImg from '../../../public/assets/images/mochis-img.png';
   }
 
   .welcome__down:hover {
-    filter: var(--invert-grey);
+    filter: var(--invert-purple);
   }
 
   /* mochis images*/
@@ -97,6 +99,11 @@ import mochisImg from '../../../public/assets/images/mochis-img.png';
   .mochisImg {
     width: 400px;
     z-index: 0;
+  }
+
+  .mochiImg,
+  .mochisImg,
+  .welcome__icon {
     animation-name: floating;
     animation-duration: 3s;
     animation-iteration-count: infinite;
@@ -116,10 +123,6 @@ import mochisImg from '../../../public/assets/images/mochis-img.png';
   /* down icon */
   .welcome__icon {
     filter: var(--invert-white);
-    animation-name: floating;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
   }
 
   /* media queries */

@@ -1,8 +1,197 @@
 ---
+import closeIcon from '../../../public/assets/icons/close.svg';
+import menuIcon from '../../../public/assets/icons/menu.svg';
 ---
 
-<header>
-  <nav>nav</nav>
+<header class='header'>
+  <nav class='header__nav'>
+    <h1 class='nav__title'>Mochi Mochi</h1>
+    <ul class='nav__links'>
+      <a href='#' class='link'>Beneficios</a>
+      <a href='#' class='link'>Poductos</a>
+      <a href='#' class='link'>Contacto</a>
+    </ul>
+    <button class='toggle' id='toggle'>
+      <picture>
+        <img src={menuIcon} alt='menu' class='close__icon' />
+      </picture></button
+    >
+    <ul class='nav__links--res' id='responsive'>
+      <a href='#' class='link--res'>Beneficios</a>
+      <a href='#' class='link--res'>Poductos</a>
+      <a href='#' class='link--res'>Contacto</a>
+      <button class='toggle__close' id='toggle'>
+        <picture>
+          <img src={closeIcon} alt='close' class='close__icon close__icon--res' />
+        </picture>
+      </button>
+    </ul>
+  </nav>
 </header>
 
-<style></style>
+<style>
+  @keyframes background-pan {
+    from {
+      background-position: 0% center;
+    }
+    to {
+      background-position: -200% center;
+    }
+  }
+
+  header {
+    background: rgba(190, 187, 187, 0);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+    color: var(--primary-color);
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .header__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 5%;
+  }
+
+  .nav__title {
+    animation: background-pan 4s linear infinite;
+    background: var(--accent-gradient);
+    background-size: 200%;
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+  }
+
+  .nav__links {
+    display: inline-flex;
+    gap: 1rem;
+  }
+
+  .nav__links .link {
+    text-decoration: none;
+    color: var(--invert-primary-text);
+    transition: 0.3s ease-in-out;
+  }
+
+  .nav__links .link:hover {
+    color: var(--secondary-text);
+  }
+
+  /* nav responsive brak point 600px */
+  .toggle {
+    background: none;
+    border: none;
+  }
+
+  .toggle,
+  .nav__links--res {
+    display: none;
+  }
+
+  .nav__links--res,
+  .show {
+    transition: all 0.8s;
+  }
+
+  .nav__links--res {
+    position: absolute;
+    display: grid;
+    place-content: center;
+    gap: 1rem;
+
+    left: -100vw;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgb(0, 0, 0);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 1;
+  }
+
+  .nav__links--res .link--res {
+    color: var(--primary-text);
+    text-decoration: none;
+    font-size: 1.4rem;
+    transition: all 0.4s ease;
+  }
+
+  .nav__links--res .link--res:hover {
+    color: var(--secondary-text);
+  }
+
+  .toggle__close {
+    background: none;
+    border: none;
+  }
+
+  .close__icon {
+    filter: var(--invert-purple);
+    cursor: pointer;
+    background: none;
+    padding: none;
+    transition: all 0.4s ease;
+  }
+
+  .close__icon:hover {
+    filter: var(--invert-white);
+  }
+
+  .close__icon--res {
+    margin-top: 2rem;
+  }
+
+  .show {
+    left: 50%;
+    transform: translate(-50%, 0);
+    color: var(--primary-text);
+  }
+
+  @media screen and (max-width: 600px) {
+    .nav__links {
+      display: none;
+    }
+
+    .toggle {
+      display: block;
+    }
+  }
+</style>
+
+<script>
+  const resMenu = document.getElementById('responsive');
+  const buttons = document.querySelectorAll('#toggle');
+  const menuResLinks = document.querySelectorAll('.link--res');
+
+  let toggle = false;
+
+  if (buttons && resMenu) {
+    const changeToggle = () => {
+      if (!toggle) {
+        resMenu.classList.add('show');
+        toggle = !toggle;
+      } else {
+        resMenu.classList.remove('show');
+        toggle = !toggle;
+      }
+    };
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        changeToggle();
+      });
+    });
+
+    menuResLinks.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        changeToggle();
+      });
+    });
+  }
+</script>
