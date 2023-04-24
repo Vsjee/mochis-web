@@ -1,0 +1,146 @@
+---
+---
+
+<section class='container'>
+  <h1 class='title'>Beneficios</h1>
+  <article class='benefits'>
+    <div class='benefits__first'>
+      <div></div>
+      <div>
+        <ul class='first__list'>
+          <li>
+            <p>
+              <b>Satisfacción de antojos:</b> Excelente opción para aquellos que buscan satisfacer sus
+              antojos de algo dulce y helado.
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>Variedad de sabores:</b> Existe una gran variedad de sabores de mochis de helado disponibles.
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>Bajo en calorías:</b> El helado tienen menos calorías que otros postres helados, lo
+              que los convierte en una opción más saludable.
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>Diversión para compartir:</b> Los mochis de helado son una opción divertida y única
+              para compartir con amigos y familiares en reuniones o fiestas.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class='benefits__second'>
+      <div>
+        <ul class='second__list'>
+          <li>
+            <p>
+              <b>Bajo en grasas saturadas:</b> Los mochis son bajos en grasas saturadas al estar hechos
+              con leche descremada y es bajo en grasa.
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>Contienen proteína:</b> Los mochis son más nutritivos que otros postres al contener
+              proteína.
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>Fuente de energía:</b> Los mochis contienen carbohidratos, que son una fuente importante
+              de energía para el cuerpo.
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>Reducción del estrés:</b> Los mochis pueden reducir el estrés ya que los alimentos dulces
+              liberan endorfinas que mejoran el estado de ánimo.
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div></div>
+    </div>
+  </article>
+</section>
+
+<style>
+  .container {
+    text-align: center;
+    margin: 6rem 0;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  /* benefits grid */
+  .benefits {
+    display: flex;
+    flex-direction: column;
+    margin-top: 6rem;
+  }
+
+  .benefits__first,
+  .benefits__second {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 30rem), 1fr));
+  }
+
+  .benefits,
+  .benefits__first,
+  .benefits__second {
+    gap: 2rem;
+  }
+
+  .benefits__first div,
+  .benefits__second div {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+  }
+
+  /* benefits images */
+  .benefits__first div:nth-child(1) {
+    background: url('../../../public/assets/images/mochis-b-1.jpg');
+  }
+
+  .benefits__second div:nth-child(2) {
+    background: url('../../../public/assets/images/mochis-b-2.jpg');
+  }
+
+  .benefits__first div:nth-child(1),
+  .benefits__second div:nth-child(2) {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  /* benefits text */
+  .benefits__first div:nth-child(2),
+  .benefits__second div:nth-child(1) {
+    font-size: 1.1rem;
+    text-align: left;
+    display: grid;
+    place-content: center;
+  }
+
+  .first__list,
+  .second__list {
+    padding: 0 1rem 0 2rem;
+  }
+
+  /* media queries */
+  @media screen and (max-width: 975px) {
+    .benefits__second > div:nth-child(1) {
+      grid-row: 2;
+    }
+    .benefits__second > div:nth-child(2) {
+      grid-row: 1;
+    }
+  }
+</style>
