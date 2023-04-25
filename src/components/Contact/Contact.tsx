@@ -1,13 +1,41 @@
 import { SyntheticEvent, useRef } from 'react';
 import './Contact.css';
+import { supabase } from './lib/api';
 
 function Contact() {
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const subjectRef = useRef<HTMLTextAreaElement>(null);
 
-  const sendForm = (e: SyntheticEvent) => {
+  const sendForm = async (e: SyntheticEvent) => {
     e.preventDefault();
+    let name = nameRef?.current?.value;
+    let email = emailRef?.current?.value;
+    let subject = subjectRef?.current?.value;
+
+    if (name !== '' && email !== '') {
+      let { data: contact, error } = await supabase
+        .from('contact')
+        .insert({ userName: name, subject: subject, userEmail: email })
+        .single();
+
+      if (error) {
+        console.log('error', error);
+      } else {
+        console.log(contact);
+        cleanInputs();
+      }
+    } else {
+      console.error('error');
+    }
+  };
+
+  const cleanInputs = () => {
+    if (nameRef.current && emailRef.current && subjectRef.current) {
+      nameRef.current.value = '';
+      emailRef.current.value = '';
+      subjectRef.current.value = '';
+    }
   };
 
   return (
