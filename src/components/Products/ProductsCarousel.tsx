@@ -13,7 +13,9 @@ function ProductsCarousel() {
 
   return (
     <section className='carousel'>
-      <h1 className='carousel__title'>Productos</h1>
+      <h1 className='carousel__title' id='products'>
+        Productos
+      </h1>
       <Swiper
         direction='horizontal'
         spaceBetween={30}

@@ -40,7 +40,9 @@ function Contact() {
 
   return (
     <section className='contact'>
-      <h1 className='contact__title'>Contacto</h1>
+      <h1 className='contact__title' id='contact'>
+        Contacto
+      </h1>
       <form className='contact__form'>
         <input
           ref={nameRef}
