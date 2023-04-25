@@ -6,6 +6,7 @@ import Footer from '../components/Footer/Footer.astro';
 import Welcome from '../components/Welcome/Welcome.astro';
 import Beneficios from '../components/Beneficios/Beneficios.astro';
 import ProductsCarousel from '../components/Products/ProductsCarousel';
+import Contact from '../components/Contact/Contact';
 ---
 
 <Layout title='Mochis Mochis'>
@@ -14,6 +15,7 @@ import ProductsCarousel from '../components/Products/ProductsCarousel';
     <Welcome />
     <Beneficios />
     <ProductsCarousel client:load />
+    <Contact client:load />
     <Footer />
   </main>
 </Layout>

@@ -32,6 +32,11 @@ const { title } = Astro.props;
       var(--secondary-text),
       var(--invert-primary-text)
     );
+    --fancy-gradient: linear-gradient(
+      160deg,
+      rgba(0, 255, 72, 0.514) 15%,
+      rgba(166, 0, 255, 1) 78%
+    );
 
     /* invert svg color */
     --invert-white: invert(96%) sepia(0%) saturate(18%) hue-rotate(278deg) brightness(104%)
