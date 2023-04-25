@@ -12,4 +12,4 @@ Has buscado un `postre innovador y diferente`, con un `sabor único` a natural q
 
 > 🍡 **Pagina preview!**
 
-![preview](./public/mochis-web.vercel.app_.png)
+[![preview](./public/mochis-web.vercel.app_.png)](https://mochis-web.vercel.app/)
